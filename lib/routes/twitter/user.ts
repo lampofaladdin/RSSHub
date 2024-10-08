@@ -51,7 +51,7 @@ export const route: Route = {
 async function handler(ctx) {
     const id = ctx.req.param('id');
     const cursor = ctx.req.query('cursor');
-    // 增加noCache参数解决缓存问题
+    // 增加noCache参数解决缓存问题，并不使用转发数据
     const noCache = ctx.req.query('noCache');
     // For compatibility
     const { count, exclude_replies, include_rts } = utils.parseRouteParams(ctx.req.param('routeParams'));
@@ -63,7 +63,8 @@ async function handler(ctx) {
     const userInfo = await api.getUser(id);
     let data: any = null;
     data = noCache ? await api.getUserTweets(id, params) : await (exclude_replies ? api.getUserTweets(id, params) : api.getUserTweetsAndReplies(id, params));
-    if (!include_rts) {
+
+    if (!include_rts || noCache) {
         data = utils.excludeRetweet(data);
     }
     const profileImageUrl = userInfo?.profile_image_url || userInfo?.profile_image_url_https;
