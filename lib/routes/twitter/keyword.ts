@@ -40,8 +40,11 @@ export const route: Route = {
 
 async function handler(ctx) {
     const keyword = ctx.req.param('keyword');
+    const product = ctx.req.param('routeParams') === 'Top' ? 'Top' : 'Latest';
     await api.init();
-    const data = await api.getSearch(keyword);
+    const data = await api.getSearch(keyword, {
+        product,
+    });
 
     return {
         title: `Twitter Keyword - ${keyword}`,

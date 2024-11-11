@@ -141,7 +141,7 @@ const getSearch = async (keywords: string, params?: Record<string, any>) =>
                 rawQuery: keywords,
                 count: 20,
                 querySource: 'typed_query',
-                product: 'Latest',
+                product: params?.product || 'Latest',
             },
             ['search_by_raw_query', 'search_timeline', 'timeline']
         )
