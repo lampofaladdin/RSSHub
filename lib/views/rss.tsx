@@ -37,6 +37,7 @@ const RSS: FC<{ data: Data }> = ({ data }) => {
                         {item?.favoriteCount && <favoriteCount>{item.favoriteCount}</favoriteCount>}
                         {item?.replyCount && <replyCount>{item.replyCount}</replyCount>}
                         {item?.retweetCount && <retweetCount>{item.retweetCount}</retweetCount>}
+                        {item?.videoUrl && <videoUrl>{item.videoUrl}</videoUrl>}
                         <guid isPermaLink="false">{item.guid || item.link || item.title}</guid>
                         {item.pubDate && <pubDate>{item.pubDate}</pubDate>}
                         {item.author && <author>{item.author}</author>}

@@ -381,6 +381,7 @@ const ProcessFeed = (ctx, { data = [] }, params = {}) => {
         const favoriteCount = originalItem?.favorite_count;
         const replyCount = originalItem?.reply_count;
         const retweetCount = originalItem?.retweet_count;
+        const videoUrl = item.extended_entities?.media?.[0]?.video_info?.variants?.reverse().find((item) => item.content_type === 'video/mp4')?.url || '';
         return {
             title,
             author: authorName,
@@ -391,6 +392,7 @@ const ProcessFeed = (ctx, { data = [] }, params = {}) => {
             favoriteCount,
             replyCount,
             retweetCount,
+            videoUrl,
             _extra:
                 (isRetweet && {
                     links: [

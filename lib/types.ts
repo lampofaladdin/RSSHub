@@ -46,6 +46,7 @@ export type DataItem = {
     favoriteCount: number;
     replyCount: number;
     retweetCount: number;
+    videoUrl: string;
     image?: string;
     banner?: string;
     updated?: number | string | Date;
