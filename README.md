@@ -92,3 +92,7 @@ Open source is a very expensive thing. RSSHub would not be possible without the 
 Authored and maintained by DIYgod with help from contributors ([list](https://github.com/DIYgod/RSSHub/contributors)).
 
 > Blog [@DIYgod](https://diygod.cc) · GitHub [@DIYgod](https://github.com/DIYgod) · Twitter [@DIYgod](https://x.com/DIYgod) · Telegram Channel [@awesomeDIYgod](https://t.me/awesomeDIYgod)
+
+```
+TWITTER_COOKIE="auth_token=25d38c25f982bbe1ec7a1d4e4c2ed2f7b91655aa; ct0=9649c768f1bff216eb8657c737f0b54b0f9f28cffd3e4d7d4bfc54f2a814eec6671aea3be801e7d4eefc6e356986d30ff45588c026b8b7ea5b9c1f2776aab5d0438b7e0ad787b234802975946d0be8e0; " pnpm run dev
+```
