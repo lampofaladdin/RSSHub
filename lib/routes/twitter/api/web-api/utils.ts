@@ -96,10 +96,14 @@ export function gatherLegacyFromData(entries: any[], filterNested?: string[], us
             }
         }
     }
+
     for (const entry of filteredEntries) {
         if (entry.entryId) {
             const content = entry.content || entry.item;
-            let tweet = content?.content?.tweetResult?.result || content?.itemContent?.tweet_results?.result || content?.items[0]?.item?.itemContent?.tweetResult?.result || content?.items[0]?.item?.itemContent?.tweet_results?.result;
+            let tweet = content?.content?.tweetResult?.result || content?.itemContent?.tweet_results?.result;
+            if (content?.items?.length) {
+                tweet = content?.items[0]?.item?.itemContent?.tweetResult?.result || content?.items[0]?.item?.itemContent?.tweet_results?.result;
+            }
             if (tweet && tweet.tweet) {
                 tweet = tweet.tweet;
             }
