@@ -163,7 +163,8 @@ const getList = async (id: string, params?: Record<string, any>) =>
 
 const getUser = async (id: string) => {
     const userData: any = await getUserData(id);
-    return (userData.data?.user || userData.data?.user_result)?.result?.legacy;
+    const user = (userData.data?.user || userData.data?.user_result)?.result;
+    return { ...user.legacy, uid: user.rest_id };
 };
 
 const getHomeTimeline = async (id: string, params?: Record<string, any>) =>
