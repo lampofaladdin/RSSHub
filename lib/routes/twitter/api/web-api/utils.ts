@@ -1,9 +1,9 @@
 import ConfigNotFoundError from '@/errors/types/config-not-found';
 import { baseUrl, gqlFeatures, bearerToken, gqlMap } from './constants';
 import { config } from '@/config';
-import got from '@/utils/got';
 import queryString from 'query-string';
 import { Cookie } from 'tough-cookie';
+import axios from 'axios';
 
 export const twitterGot = async (url, params) => {
     if (!config.twitter.cookie) {
@@ -40,7 +40,7 @@ export const twitterGot = async (url, params) => {
         },
     };
 
-    const response = await got(requestData.url, {
+    const response = await axios.get(requestData.url, {
         headers: requestData.headers,
     });
 
